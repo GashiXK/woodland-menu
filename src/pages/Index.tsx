@@ -119,55 +119,93 @@ const Index = () => {
 
       {/* Menu Content */}
       {showMenu && (
-        <main id="menu-section" className="py-16 bg-gradient-to-br from-gray-50 via-white to-green-50/30 animate-fade-in">
+        <main id="menu-section" className="py-20 bg-gradient-to-br from-gray-50 via-white to-green-50/30 animate-fade-in">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-16 h-px bg-gradient-to-r from-transparent to-green-600"></div>
-                  <Leaf className="h-6 w-6 text-green-600" />
-                  <div className="w-16 h-px bg-gradient-to-l from-transparent to-green-600"></div>
+            <div className="max-w-6xl mx-auto">
+              {/* Elegant Header */}
+              <div className="text-center mb-20">
+                <div className="inline-flex items-center gap-4 mb-8">
+                  <div className="w-20 h-px bg-gradient-to-r from-transparent via-amber-400 to-green-600"></div>
+                  <div className="relative">
+                    <Leaf className="h-8 w-8 text-green-600" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full opacity-70"></div>
+                  </div>
+                  <div className="w-20 h-px bg-gradient-to-l from-transparent via-amber-400 to-green-600"></div>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4 tracking-wide">
-                  {menuCategories.find(cat => cat.id === activeCategory)?.name}
+                
+                <h2 className="text-5xl md:text-6xl font-serif text-gray-900 mb-6 tracking-wide relative">
+                  <span className="bg-gradient-to-r from-gray-900 via-green-800 to-gray-900 bg-clip-text text-transparent">
+                    {menuCategories.find(cat => cat.id === activeCategory)?.name}
+                  </span>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-green-600 to-amber-400 rounded-full opacity-60"></div>
                 </h2>
-                <p className="text-gray-600 font-light italic text-lg">Shije autentike nga pylli</p>
+                
+                <p className="text-gray-600 font-light italic text-xl tracking-wide">
+                  Një përzgjedhje e kujdesshme shijesash autentike
+                </p>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+              {/* Elegant Menu Grid */}
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                 {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
                   <Card 
                     key={index} 
-                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden animate-fade-in hover:scale-[1.02] relative"
-                    style={{ animationDelay: `${index * 80}ms` }}
+                    className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 via-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <CardContent className="p-8">
-                      <div className="flex justify-between items-start gap-6">
+                    {/* Decorative top border */}
+                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-600 via-amber-400 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Subtle background pattern */}
+                    <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                      <Leaf className="h-16 w-16 text-green-600" />
+                    </div>
+
+                    <CardContent className="p-8 relative z-10">
+                      <div className="flex justify-between items-start gap-8">
                         <div className="flex-1">
-                          <div className="flex items-start gap-3 mb-2">
-                            <span className="text-sm font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div>
-                              <h3 className="text-xl font-serif text-gray-900 group-hover:text-green-700 transition-colors mb-1 leading-tight">
+                          <div className="flex items-start gap-4 mb-3">
+                            {/* Elegant number badge */}
+                            <div className="relative">
+                              <span className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-green-100 to-green-50 text-green-700 font-bold text-sm rounded-full border border-green-200 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            
+                            <div className="flex-1">
+                              <h3 className="text-2xl font-serif text-gray-900 group-hover:text-green-700 transition-colors duration-300 mb-2 leading-tight">
                                 {item.name}
                               </h3>
                               {item.description && (
-                                <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors italic leading-relaxed">
+                                <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300 italic leading-relaxed font-light">
                                   {item.description}
                                 </p>
                               )}
                             </div>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">
-                            {item.price}
-                          </span>
+                        
+                        {/* Elegant price display */}
+                        <div className="text-right relative">
+                          <div className="relative inline-block">
+                            <span className="text-3xl font-bold bg-gradient-to-r from-green-700 via-green-600 to-amber-600 bg-clip-text text-transparent">
+                              {item.price}
+                            </span>
+                            <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-green-600 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
                         </div>
                       </div>
-                      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Decorative bottom line */}
+                      <div className="mt-6 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      
+                      {/* Subtle hover effect dots */}
+                      <div className="absolute bottom-4 left-8 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-amber-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
