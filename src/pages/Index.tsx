@@ -78,10 +78,11 @@ const Index = () => {
           <div className="flex justify-center">
             <button
               onClick={scrollToMenu}
-              className="group flex items-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              className="group inline-flex items-center gap-3 text-white border-2 border-white/30 backdrop-blur-sm hover:bg-white/10 hover:border-white/50 px-8 py-4 rounded-full font-serif text-xl tracking-wider transition-all duration-300 transform hover:scale-105"
             >
-              <span>Menu</span>
-              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
+              <span className="font-light italic">découvrir notre</span>
+              <span className="font-semibold">Menu</span>
+              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1 group-hover:scale-110" />
             </button>
           </div>
         </div>
@@ -118,41 +119,55 @@ const Index = () => {
 
       {/* Menu Content */}
       {showMenu && (
-        <main id="menu-section" className="py-16 bg-gray-50/50 animate-fade-in">
+        <main id="menu-section" className="py-16 bg-gradient-to-br from-gray-50 via-white to-green-50/30 animate-fade-in">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-serif text-gray-900 mb-4">
+                <div className="inline-flex items-center gap-3 mb-6">
+                  <div className="w-16 h-px bg-gradient-to-r from-transparent to-green-600"></div>
+                  <Leaf className="h-6 w-6 text-green-600" />
+                  <div className="w-16 h-px bg-gradient-to-l from-transparent to-green-600"></div>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4 tracking-wide">
                   {menuCategories.find(cat => cat.id === activeCategory)?.name}
                 </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full"></div>
+                <p className="text-gray-600 font-light italic text-lg">Shije autentike nga pylli</p>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
                 {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
                   <Card 
                     key={index} 
-                    className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm overflow-hidden animate-fade-in hover:scale-[1.02]"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden animate-fade-in hover:scale-[1.02] relative"
+                    style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start gap-4">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 via-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <CardContent className="p-8">
+                      <div className="flex justify-between items-start gap-6">
                         <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors mb-1">
-                            {item.name}
-                          </h3>
-                          {item.description && (
-                            <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
-                              {item.description}
-                            </p>
-                          )}
+                          <div className="flex items-start gap-3 mb-2">
+                            <span className="text-sm font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <div>
+                              <h3 className="text-xl font-serif text-gray-900 group-hover:text-green-700 transition-colors mb-1 leading-tight">
+                                {item.name}
+                              </h3>
+                              {item.description && (
+                                <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors italic leading-relaxed">
+                                  {item.description}
+                                </p>
+                              )}
+                            </div>
+                          </div>
                         </div>
                         <div className="text-right">
-                          <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+                          <span className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">
                             {item.price}
                           </span>
                         </div>
                       </div>
+                      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </CardContent>
                   </Card>
                 ))}
