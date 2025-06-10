@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,33 +15,33 @@ const Index = () => {
 
   const menuItems = {
     fastfood: [
-      { name: "Hamburger Classic", price: "2.50€" },
-      { name: "Hamburger Wood Land", price: "3.00€" },
-      { name: "Hamburger Mexican", price: "2.80€" },
-      { name: "Chicken Burger", price: "3.00€" },
-      { name: "Double Burger", price: "4.00€" },
-      { name: "Sandwich Pule", price: "2.80€" },
-      { name: "Sandwich Steak", price: "3.00€" },
-      { name: "Sandwich Mix", price: "3.00€" },
-      { name: "Bruscheta", price: "3.00€" },
-      { name: "Chicken e Vogël", price: "3.50€" },
-      { name: "Chicken Mesme", price: "7.00€" },
-      { name: "Chicken Madhe", price: "10.00€" },
-      { name: "Mezze e Ngrohtë (vogël)", price: "4.00€" },
-      { name: "Mezze e Ngrohtë (mesme)", price: "8.00€" },
-      { name: "Mezze e Ngrohtë (madhe)", price: "14.00€" },
-      { name: "Mezze e Ftohtë (vogël)", price: "3.50€" },
-      { name: "Mezze e Ftohtë (mesme)", price: "5.50€" },
-      { name: "Mezze e Ftohtë (madhe)", price: "8.50€" },
-      { name: "Pomfrit", price: "2.50€" },
+      { name: "Hamburger Classic", description: "Hamburger klasik me mish viçi, sallatë, domate dhe sos special", price: "2.50€" },
+      { name: "Hamburger Wood Land", description: "Hamburger special i restorantit me mish premium, djathë dhe perime të freskëta", price: "3.00€" },
+      { name: "Hamburger Mexican", description: "Hamburger me shije meksikane, salsa pikante dhe avokado", price: "2.80€" },
+      { name: "Chicken Burger", description: "Hamburger me fileto pule të marinuar, sallatë dhe sos ranch", price: "3.00€" },
+      { name: "Double Burger", description: "Hamburger i dyfishtë me dy copa mishi dhe djathë të shkrirë", price: "4.00€" },
+      { name: "Sandwich Pule", description: "Sandwich me fileto pule, sallatë të freskët dhe majonezo", price: "2.80€" },
+      { name: "Sandwich Steak", description: "Sandwich me bifteku të copëtuar dhe perime të grira", price: "3.00€" },
+      { name: "Sandwich Mix", description: "Sandwich me përzierje mishesh dhe perimesh të ndryshme", price: "3.00€" },
+      { name: "Bruschetta", description: "Bukë e pjekur me domate të freskëta, borzilok dhe vaj ulliri", price: "3.00€" },
+      { name: "Chicken e Vogël", description: "Porcioni i vogël i pulës së pjekur me erëza speciale", price: "3.50€" },
+      { name: "Chicken Mesme", description: "Porcioni mesatar i pulës së marinuar dhe të pjekur", price: "7.00€" },
+      { name: "Chicken Madhe", description: "Porcioni i madh i pulës për familje me garnitura", price: "10.00€" },
+      { name: "Mezze e Ngrohtë (vogël)", description: "Antipasta të ngrohta me varietete të ndryshme", price: "4.00€" },
+      { name: "Mezze e Ngrohtë (mesme)", description: "Përzgjedhje mezze të ngrohta me ushqime tradicionale", price: "8.00€" },
+      { name: "Mezze e Ngrohtë (madhe)", description: "Koleksion i plotë mezze të ngrohta për grup", price: "14.00€" },
+      { name: "Mezze e Ftohtë (vogël)", description: "Antipasta të ftohta me djathëra dhe sallatë", price: "3.50€" },
+      { name: "Mezze e Ftohtë (mesme)", description: "Varietete mezze të ftohta me ullinjt dhe djathëra", price: "5.50€" },
+      { name: "Mezze e Ftohtë (madhe)", description: "Koleksion i gjerë mezze të ftohta tradicionale", price: "8.50€" },
+      { name: "Pomfrit", description: "Patate të skuqura të artë me kripe deti", price: "2.50€" },
     ],
     breakfast: [
-      { name: "Omlet me Proshutë", price: "3.00€" },
-      { name: "Omlet me Djathë", price: "3.00€" },
-      { name: "Omlet me Kërpudha", price: "3.00€" },
+      { name: "Omlet me Proshutë", description: "Vezë të rrahura me proshutë të copëtuar dhe djathë", price: "3.00€" },
+      { name: "Omlet me Djathë", description: "Omlet klasik me djathë të shkrirë dhe erëza", price: "3.00€" },
+      { name: "Omlet me Kërpudha", description: "Omlet me kërpudha të freskëta dhe erëza aromatike", price: "3.00€" },
       { name: "Mëngjesi Woodland", description: "Vezë, domate, djathë, tranguj, ajvar i shtëpisë, ulliri", price: "3.50€" },
-      { name: "Llokuma", price: "3.00€" },
-      { name: "Supë me Perime", price: "2.00€" },
+      { name: "Llokuma", description: "Ëmbëlsirë tradicionale me mjaltë dhe arra", price: "3.00€" },
+      { name: "Supë me Perime", description: "Supë e ngrohtë me perime sezoni dhe erëza", price: "2.00€" },
     ]
   };
 
@@ -146,65 +145,63 @@ const Index = () => {
               </div>
 
               {/* Elegant Menu Grid */}
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+              <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1 max-w-4xl mx-auto">
                 {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
                   <Card 
                     key={index} 
-                    className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] animate-fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    className="group relative overflow-hidden bg-white/90 backdrop-blur-sm border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] animate-fade-in"
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Decorative top border */}
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-600 via-amber-400 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 via-amber-400 to-green-600 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Subtle background pattern */}
-                    <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                      <Leaf className="h-16 w-16 text-green-600" />
+                    <div className="absolute top-6 right-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                      <Leaf className="h-20 w-20 text-green-600" />
                     </div>
 
                     <CardContent className="p-8 relative z-10">
                       <div className="flex justify-between items-start gap-8">
                         <div className="flex-1">
-                          <div className="flex items-start gap-4 mb-3">
+                          <div className="flex items-start gap-6 mb-4">
                             {/* Elegant number badge */}
-                            <div className="relative">
-                              <span className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-green-100 to-green-50 text-green-700 font-bold text-sm rounded-full border border-green-200 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                            <div className="relative flex-shrink-0">
+                              <span className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 text-green-800 font-bold text-lg rounded-full border-2 border-green-200 shadow-md group-hover:shadow-lg transition-all duration-300">
                                 {String(index + 1).padStart(2, '0')}
                               </span>
-                              <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             
-                            <div className="flex-1">
-                              <h3 className="text-2xl font-serif text-gray-900 group-hover:text-green-700 transition-colors duration-300 mb-2 leading-tight">
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-green-700 transition-colors duration-300 mb-3 leading-tight font-semibold">
                                 {item.name}
                               </h3>
-                              {item.description && (
-                                <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300 italic leading-relaxed font-light">
-                                  {item.description}
-                                </p>
-                              )}
+                              <p className="text-base md:text-lg text-gray-700 group-hover:text-gray-800 transition-colors duration-300 leading-relaxed font-light line-height-relaxed">
+                                {item.description}
+                              </p>
                             </div>
                           </div>
                         </div>
                         
                         {/* Elegant price display */}
-                        <div className="text-right relative">
+                        <div className="text-right relative flex-shrink-0">
                           <div className="relative inline-block">
-                            <span className="text-3xl font-bold bg-gradient-to-r from-green-700 via-green-600 to-amber-600 bg-clip-text text-transparent">
+                            <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-700 via-green-600 to-amber-600 bg-clip-text text-transparent tracking-tight">
                               {item.price}
                             </span>
-                            <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-green-600 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-green-600 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                           </div>
                         </div>
                       </div>
                       
                       {/* Decorative bottom line */}
-                      <div className="mt-6 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      <div className="mt-8 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                       
                       {/* Subtle hover effect dots */}
-                      <div className="absolute bottom-4 left-8 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="w-1 h-1 bg-green-400 rounded-full"></div>
-                        <div className="w-1 h-1 bg-amber-400 rounded-full"></div>
-                        <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                      <div className="absolute bottom-6 left-8 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                       </div>
                     </CardContent>
                   </Card>
