@@ -225,7 +225,7 @@ const Index = () => {
               <h3 className="text-2xl font-serif text-green-200 mb-2">Woodland Restaurant</h3>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div className="grid md:grid-cols-2 gap-12 text-center md:text-left max-w-4xl mx-auto">
               <div className="space-y-4">
                 <div className="flex items-center justify-center md:justify-start gap-3 text-green-300">
                   <MapPin className="h-5 w-5" />
@@ -243,19 +243,7 @@ const Index = () => {
                   <h4 className="font-semibold text-lg">Orari</h4>
                 </div>
                 <div className="text-gray-300 space-y-1">
-                  <p>E Hënë - E Shtunë: 12:00 - 23:00</p>
-                  <p>E Diel: 12:00 - 22:00</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-center md:justify-start gap-3 text-green-300">
-                  <Phone className="h-5 w-5" />
-                  <h4 className="font-semibold text-lg">Kontakti</h4>
-                </div>
-                <div className="text-gray-300 space-y-1">
-                  <p>+355 69 123 4567</p>
-                  <p>reservation@woodland.al</p>
+                  <p>E Hënë - E Diel: 12:00 - 24:00</p>
                 </div>
               </div>
             </div>
