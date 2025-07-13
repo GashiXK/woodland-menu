@@ -223,8 +223,8 @@ const Index = () => {
                   <h4 className="font-semibold text-lg">Vendndodhja</h4>
                 </div>
                 <div className="text-gray-300 space-y-1">
-                  <p>Rruga e Pyjeve 123</p>
-                  <p>Tiranë, Shqipëri</p>
+                  <p>Gjakovë</p>
+                  <p>Kosovë</p>
                 </div>
               </div>
               
